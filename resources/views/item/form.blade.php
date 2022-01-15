@@ -5,7 +5,13 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Add Item</div>
+                    <div class="card-header">
+                        @if ($isEditing)
+                            {{ $item->name }}
+                        @else
+                            Add Item
+                        @endif
+                    </div>
                     <div class="card-body">
                         <form @if ($isEditing)
                             action="/items/{{ $item->id }}"
@@ -19,7 +25,7 @@
                                 <input type="hidden" name="_method" value="PUT">
                             @endif
                             <div class="d-block pb-2">
-                                <label>Enter Item Name:</label><br>
+                                <label>Item Name:</label><br>
                                 <input type="text" name="name" @if ($isEditing)
                                 disabled
                                 value="{{ $item->name }}"
@@ -34,7 +40,7 @@
                                 @endif
                             </div>
                             <div class="d-block pb-2">
-                                <label>Enter Item Quantity:</label><br>
+                                <label>Item Quantity:</label><br>
                                 <input type="number" name="quantity" min="1" @if ($isEditing)
                                 value="{{ $item->quantity }}"
                                 @endif>

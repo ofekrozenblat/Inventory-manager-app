@@ -25,7 +25,7 @@
                                 <input type="hidden" name="_method" value="DELETE">
                             @endif
                             <div class="d-block pb-2">
-                                <label>Enter Category Name:</label><br>
+                                <label>Category Name:</label><br>
                                 <input type="text" name="name" @if ($isEditing)
                                 disabled
                                 value="{{ $category->name }}"
