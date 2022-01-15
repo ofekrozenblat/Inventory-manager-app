@@ -24,7 +24,7 @@ class ItemsController extends Controller
    */
   public function create()
   {
-    //
+    return view('item.form');
   }
 
   /**
@@ -35,7 +35,13 @@ class ItemsController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $item = Item::make([
+      'name' => $request->input('name'),
+      'quantity' => $request->input('quantity'),
+      'category_id' => $request->input('category') == 'None' ? 0 : 1,
+    ]);
+    $item->save();
+    return view('welcome');
   }
 
   /**
