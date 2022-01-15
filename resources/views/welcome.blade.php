@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card mb-5">
-                    <div class="card-header">Categories</div>
+                    <div class="card-header">
+                        <h2> Categories </h2>
+                    </div>
                     <div class="card-body">
                         <a href="/categories/create" class="btn btn-success mb-5 mt-1">Create Category</a>
                         <div class="d-block" style="max-height:500px;overflow:auto;">
@@ -31,7 +33,9 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">Items</div>
+                    <div class="card-header">
+                        <h2> Items </h2>
+                    </div>
                     <div class="card-body">
                         <a href="/items/create" class="btn btn-success mb-5 mt-1"> + Add Item</a>
                         <div class="d-block" style="max-height:500px;overflow:auto;">
