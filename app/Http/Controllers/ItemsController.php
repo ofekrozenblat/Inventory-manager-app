@@ -24,7 +24,10 @@ class ItemsController extends Controller
    */
   public function create()
   {
-    return view('item.form');
+    $data = [
+      'isEditing' => false,
+    ];
+    return view('item.form', $data);
   }
 
   /**

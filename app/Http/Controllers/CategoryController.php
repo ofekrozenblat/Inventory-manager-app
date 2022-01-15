@@ -24,7 +24,10 @@ class CategoryController extends Controller
    */
   public function create()
   {
-    //
+    $data = [
+      'isEditing' => false,
+    ];
+    return view('category.form', $data);
   }
 
   /**
@@ -35,7 +38,11 @@ class CategoryController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $category = Category::make([
+      'name' => $request->input('name')
+    ]);
+    $category->save();
+    return redirect('/');
   }
 
   /**
@@ -57,7 +64,11 @@ class CategoryController extends Controller
    */
   public function edit(Category $category)
   {
-    //
+    $data = [
+      'category' => $category,
+      'isEditing' => true,
+    ];
+    return view('category.form', $data);
   }
 
   /**
@@ -80,6 +91,8 @@ class CategoryController extends Controller
    */
   public function destroy(Category $category)
   {
-    //
+    $category->items()->delete();
+    $category->delete();
+    return redirect('/');
   }
 }

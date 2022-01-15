@@ -47,11 +47,13 @@
                                 @endif
                             </div>
                         </form>
-                        <form action="/items/{{ $item->id }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit">Delete</button>
-                        </form>
+                        @if ($isEditing)
+                            <form action="/items/{{ $item->id }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit">Delete</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>

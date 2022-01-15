@@ -7,6 +7,7 @@
                 <div class="card mb-5">
                     <div class="card-header">Categories</div>
                     <div class="card-body">
+                        <a href="/categories/create" class="btn btn-success mb-5 mt-1"> + Create Category</a>
                         <div class="d-block" style="max-height:500px;overflow:auto;">
                             <table id="items-table" class="table table-striped table-bordered">
                                 <thead class="table-dark">
@@ -17,7 +18,9 @@
                                 <tbody id="items-table-body" class="table-light h-100">
                                     @foreach ($categories as $category)
                                         <tr>
-                                            <td>{{ $category->name }}</td>
+                                            <td><a href="/categories/{{ $category->id }}/edit"
+                                                    class="text-decoration-none">
+                                                    {{ $category->name }}</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
