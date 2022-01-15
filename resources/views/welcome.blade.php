@@ -47,7 +47,7 @@
                                             <td><a href="/items/{{ $item->id }}/edit" class="text-decoration-none">
                                                     {{ $item->name }}</a></td>
                                             <td>{{ $item->quantity }}</td>
-                                            <td>{{ $item->category_id == 0 ? 'None' : $item->category->Name }}</td>
+                                            <td>{{ $item->category_id == 0 ? 'None' : $item->category->name }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

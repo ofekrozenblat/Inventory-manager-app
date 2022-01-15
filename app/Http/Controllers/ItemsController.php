@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Item;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,7 @@ class ItemsController extends Controller
   {
     $data = [
       'isEditing' => false,
+      'categories' => Category::all(),
     ];
     return view('item.form', $data);
   }
@@ -41,7 +43,7 @@ class ItemsController extends Controller
     $item = Item::make([
       'name' => $request->input('name'),
       'quantity' => $request->input('quantity'),
-      'category_id' => $request->input('category') == 'None' ? 0 : 1,
+      'category_id' => $request->input('category'),
     ]);
     $item->save();
     return redirect('/');
@@ -68,6 +70,7 @@ class ItemsController extends Controller
   {
     $data = [
       'item' => $item,
+      'categories' => Category::all(),
       'isEditing' => true,
     ];
     return view('item.form', $data);
@@ -83,7 +86,7 @@ class ItemsController extends Controller
   public function update(Request $request, Item $item)
   {
     $item->quantity = $request->input('quantity');
-    $item->category_id = $request->input('category') == 'None' ? 0 : 1;
+    $item->category_id = $request->input('category');
     $item->save();
     return redirect('/');
   }

@@ -34,10 +34,16 @@
                             </div>
                             <div class="d-block pb-2">
                                 <label>Choose Item Category:</label><br>
-                                <input type="text" name="category" list="categorylist">
-                                <datalist id="categorylist">
-                                    <option value="None">
-                                </datalist>
+                                <select id="categorylist" name="category">
+                                    <option value="0" @if ($item->category_id == 0)
+                                        selected="selected"
+                                        @endif>None</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" @if ($item->category_id == $category->id)
+                                            selected="selected"
+                                    @endif>{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="d-block pb-2">
                                 @if ($isEditing)
