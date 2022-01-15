@@ -13,6 +13,7 @@
                                 <thead class="table-dark">
                                     <tr>
                                         <th>Name</th>
+                                        <th>Item Count</th>
                                     </tr>
                                 </thead>
                                 <tbody id="items-table-body" class="table-light h-100">
@@ -21,6 +22,7 @@
                                             <td><a href="/categories/{{ $category->id }}/edit"
                                                     class="text-decoration-none">
                                                     {{ $category->name }}</a></td>
+                                            <td>{{ count($category->items) }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
