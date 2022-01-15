@@ -41,7 +41,8 @@
                                 <tbody id="items-table-body" class="table-light h-100">
                                     @foreach ($items as $item)
                                         <tr>
-                                            <td>{{ $item->name }}</td>
+                                            <td><a href="/items/{{ $item->id }}/edit" class="text-decoration-none">
+                                                    {{ $item->name }}</a></td>
                                             <td>{{ $item->quantity }}</td>
                                             <td>{{ $item->category_id == 0 ? 'None' : $item->category->Name }}</td>
                                         </tr>

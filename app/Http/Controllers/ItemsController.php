@@ -63,7 +63,11 @@ class ItemsController extends Controller
    */
   public function edit(Item $item)
   {
-    //
+    $data = [
+      'item' => $item,
+      'isEditing' => true,
+    ];
+    return view('item.form', $data);
   }
 
   /**
@@ -75,7 +79,10 @@ class ItemsController extends Controller
    */
   public function update(Request $request, Item $item)
   {
-    //
+    $item->quantity = $request->input('quantity');
+    $item->category_id = $request->input('category') == 'None' ? 0 : 1;
+    $item->save();
+    return redirect('/');
   }
 
   /**

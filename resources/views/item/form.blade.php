@@ -7,15 +7,30 @@
                 <div class="card">
                     <div class="card-header">Add Item</div>
                     <div class="card-body">
-                        <form action="/items" method="POST">
+                        <form @if ($isEditing)
+                            action="/items/{{ $item->id }}"
+                            method="POST"
+                        @else
+                            action="/items"
+                            method="POST"
+                            @endif>
                             @csrf
+                            @if ($isEditing)
+                                <input type="hidden" name="_method" value="PUT">
+                            @endif
                             <div class="d-block pb-2">
                                 <label>Enter Item Name:</label><br>
-                                <input type="text" name="name">
+                                <input type="text" name="name" @if ($isEditing)
+                                disabled
+                                value="{{ $item->name }}"
+                                @endif
+                                >
                             </div>
                             <div class="d-block pb-2">
                                 <label>Enter Item Quantity:</label><br>
-                                <input type="number" name="quantity" min="1">
+                                <input type="number" name="quantity" min="1" @if ($isEditing)
+                                value="{{ $item->quantity }}"
+                                @endif>
                             </div>
                             <div class="d-block pb-2">
                                 <label>Choose Item Category:</label><br>
@@ -25,7 +40,11 @@
                                 </datalist>
                             </div>
                             <div class="d-block pb-2">
-                                <button type="submit">Add Item</button>
+                                @if ($isEditing)
+                                    <button type="submit">Update Item</button>
+                                @else
+                                    <button type="submit">Add Item</button>
+                                @endif
                             </div>
                         </form>
                     </div>
