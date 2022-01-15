@@ -47,6 +47,11 @@
                                 @endif
                             </div>
                         </form>
+                        <form action="/items/{{ $item->id }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit">Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>
