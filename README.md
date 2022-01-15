@@ -18,9 +18,9 @@ Click on the the name of a category under the `Categories` table. This will redi
 ## Usage: Items
 The home page has a section called `Items` which displays a table with the current items that have been created, along side the qauntity of the item and its related category. If an item is not assigned a category, the default will be `None`.
 
-### Add an Item:
+### Add an item:
 Click on the `+ Add Item` button. This will redirect you to a new page. Enter the name, quantity, and a category (If you do not want to assign a category, leave it as `None`). Press `Add Item` button to add the item.
 
-### Delere or Edit an Item
+### Delere or Edit an item
 Click on the name of the item under the `Items` table. This will redirect you to a new page where you can update the item details as well as delete the item.
 
