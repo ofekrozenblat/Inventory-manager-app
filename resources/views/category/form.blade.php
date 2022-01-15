@@ -31,6 +31,13 @@
                                 value="{{ $category->name }}"
                                 @endif
                                 >
+                                @if ($errors->get('name'))
+                                    @foreach ($errors->get('name') as $error)
+                                        <li class="text-danger unstyled">
+                                            {{ $error }}
+                                        </li>
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="d-block pb-2">
                                 @if ($isEditing)

@@ -25,21 +25,35 @@
                                 value="{{ $item->name }}"
                                 @endif
                                 >
+                                @if ($errors->get('name'))
+                                    @foreach ($errors->get('name') as $error)
+                                        <li class="text-danger unstyled">
+                                            {{ $error }}
+                                        </li>
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="d-block pb-2">
                                 <label>Enter Item Quantity:</label><br>
                                 <input type="number" name="quantity" min="1" @if ($isEditing)
                                 value="{{ $item->quantity }}"
                                 @endif>
+                                @if ($errors->get('quantity'))
+                                    @foreach ($errors->get('quantity') as $error)
+                                        <li class="text-danger">
+                                            {{ $error }}
+                                        </li>
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="d-block pb-2">
                                 <label>Choose Item Category:</label><br>
                                 <select id="categorylist" name="category">
-                                    <option value="0" @if ($item->category_id == 0)
+                                    <option value="0" @if ($isEditing && $item->category_id == 0)
                                         selected="selected"
                                         @endif>None</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}" @if ($item->category_id == $category->id)
+                                        <option value="{{ $category->id }}" @if ($isEditing && $item->category_id == $category->id)
                                             selected="selected"
                                     @endif>{{ $category->name }}</option>
                                     @endforeach

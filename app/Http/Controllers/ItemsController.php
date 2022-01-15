@@ -40,6 +40,12 @@ class ItemsController extends Controller
    */
   public function store(Request $request)
   {
+    $request->validate([
+      'name' => 'required|unique:item',
+      'quantity' => 'required|integer|min:1',
+      'category' => 'required',
+    ]);
+
     $item = Item::make([
       'name' => $request->input('name'),
       'quantity' => $request->input('quantity'),
@@ -85,6 +91,11 @@ class ItemsController extends Controller
    */
   public function update(Request $request, Item $item)
   {
+    $request->validate([
+      'quantity' => 'required|integer|min:1',
+      'category' => 'required',
+    ]);
+
     $item->quantity = $request->input('quantity');
     $item->category_id = $request->input('category');
     $item->save();
