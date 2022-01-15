@@ -26,8 +26,8 @@ class ItemsController extends Controller
   public function create()
   {
     $data = [
-      'isEditing' => false,
       'categories' => Category::all(),
+      'isEditing' => false,
     ];
     return view('item.form', $data);
   }
