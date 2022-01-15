@@ -7,7 +7,7 @@
                 <div class="card mb-5">
                     <div class="card-header">Categories</div>
                     <div class="card-body">
-                        <a href="/categories/create" class="btn btn-success mb-5 mt-1"> + Create Category</a>
+                        <a href="/categories/create" class="btn btn-success mb-5 mt-1">Create Category</a>
                         <div class="d-block" style="max-height:500px;overflow:auto;">
                             <table id="items-table" class="table table-striped table-bordered">
                                 <thead class="table-dark">
