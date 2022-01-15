@@ -41,7 +41,7 @@ class ItemsController extends Controller
       'category_id' => $request->input('category') == 'None' ? 0 : 1,
     ]);
     $item->save();
-    return view('welcome');
+    return redirect('/');
   }
 
   /**

@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Create Item</div>
+                    <div class="card-header">Add Item</div>
                     <div class="card-body">
                         <form action="/items" method="POST">
                             @csrf
@@ -15,7 +15,7 @@
                             </div>
                             <div class="d-block pb-2">
                                 <label>Enter Item Quantity:</label><br>
-                                <input type="number" name="quantity">
+                                <input type="number" name="quantity" min="1">
                             </div>
                             <div class="d-block pb-2">
                                 <label>Choose Item Category:</label><br>
@@ -25,7 +25,7 @@
                                 </datalist>
                             </div>
                             <div class="d-block pb-2">
-                                <button type="submit">Create Item</button>
+                                <button type="submit">Add Item</button>
                             </div>
                         </form>
                     </div>
